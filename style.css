@@ -1,4 +1,5 @@
 @layer global, component, utility;
+
 @layer global {
   /* source-sans-3-regular - latin */
   @font-face {
@@ -53,6 +54,7 @@
     --color-main-bg: var(--c-white);
     --color-text-dark: var(--c-grey-dark);
     --color-text-white: var(--c-white);
+    --color-header-bg: var(--c-purple);
     --color-hero-bg: var(--c-purple);
     --color-button-primary-bg: var(--c-teal);
     --color-button-primary-text: var(--c-grey-dark);
@@ -114,6 +116,39 @@
 }
 
 @layer component {
+  .topnav {
+    background-color: var(--color-header-bg);
+
+    .topnav__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topnav__homelink {
+    }
+
+    .topnav__links {
+      display: flex;
+      gap: 20px;
+      list-style-type: none;
+      padding: 0;
+      @media (width >= calc(600 / 16 * 1rem)) {
+        gap: 40px;
+      }
+    }
+
+    .topnav__item {
+    }
+
+    .topnav__link {
+      font-size: var(--font-size-top-nav);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-white);
+    }
+  }
 }
 
 @layer utility {
@@ -124,5 +159,14 @@
     width: 1px;
     height: 1px;
     overflow: hidden;
+
+    &.skip:focus {
+      left: 0;
+      width: auto;
+      height: auto;
+      background: white;
+      padding: 10px;
+      border: 1px solid;
+    }
   }
 }
